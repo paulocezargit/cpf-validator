@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Validador de CPF</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" href="icon.svg">
+	<link rel="icon" type="image/svg" href="icon.svg">
+</head>
+
+<body>
+
+	<div class="container">
+		<header>
+			<h1>Validador de CPF</h1>
+			<p class="lead">Insira um CPF para validar (formato: <code>000.000.000-00</code> ou somente dígitos).</p>
+		</header>
+
+		<main class="card" role="main">
+			<form id="cpfForm" onsubmit="return false;" autocomplete="off">
+				<div class="form-row">
+					<div style="flex:1">
+						<label for="cpf">CPF</label>
+						<input id="cpf" name="cpf" type="text" inputmode="numeric" maxlength="14" placeholder="___.___.___-__"
+						aria-describedby="cpfHelp" />
+						<div id="cpfHelp" class="hint">O campo aceita pontuação automaticamente. Digite apenas números ou o CPF já
+						formatado.</div>
+					</div>
+
+				</div>
+
+				<div class="controls">
+					<button type="button" class="secondary" id="clearBtn">Limpar</button>
+					<button type="button" class="secondary" id="copyBtn">Copiar (formatado)</button>
+					<button type="button" class="secondary" id="copyDigitsBtn">Copiar (só dígitos)</button>
+				</div>
+
+				<div id="feedback" aria-live="polite" class="msg" style="display:none"></div>
+
+			</form>
+
+			<section style="margin-top:18px">
+				<h2 style="font-size:1rem;margin:0 0 8px 0">Como funciona a validação</h2>
+				<p class="hint">A validação usa apenas o algoritmo oficial do CPF: remove caracteres não numéricos, rejeita
+				sequências iguais (ex.: 00000000000) e recalcula os dois dígitos verificadores.</p>
+			</section>
+		</main>
+
+		<footer>Este aplicativo apenas verifica se um CPF é válido.</footer>
+	</div>
+
+	<script src="assets/js/script.js"></script>
+</body>
+
+</html>
